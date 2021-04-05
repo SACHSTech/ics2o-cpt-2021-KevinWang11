@@ -49,6 +49,31 @@ pc_image.set_colorkey(BLACK)
 software_image = pygame.image.load("software.png").convert()
 software_image.set_colorkey(BLACK)
 
+home_image = pygame.image.load("HomePage.png").convert()
+home_image.set_colorkey(BLACK)
+
+cpu_image = pygame.image.load("cpu.png").convert()
+cpu_image.set_colorkey(BLACK)
+
+gpu_image = pygame.image.load("gpu.png").convert()
+gpu_image.set_colorkey(BLACK)
+
+ram_image = pygame.image.load("ram.png").convert()
+ram_image.set_colorkey(BLACK)
+
+mobo_image = pygame.image.load("motherboard.png").convert()
+mobo_image.set_colorkey(BLACK)
+
+storage_image = pygame.image.load("storage.png").convert()
+storage_image.set_colorkey(BLACK)
+
+psu_image = pygame.image.load("psu.png").convert()
+psu_image.set_colorkey(BLACK)
+
+
+
+
+
 scene = 0
 
 #Sets the posltiion and the velocity for the animated lock
@@ -72,16 +97,22 @@ while not done:
     #Displays the images onto the screen
     screen.blit(background_image, [0, 0])
     
+  
+    
     #Defines the mouse position and clicks
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
   
     # --- Drawing button code should go here 
     if scene == 0:  
+
       pygame.draw.rect(screen, GREEN, (100,535,175,50) )
       pygame.draw.rect(screen, RED, (900,535,175,50) )
       pygame.draw.rect(screen, BLUE, (500,535,175,50) )
 
+      screen.blit(home_image, [0, 0])
+  
+  
       if 100+175 > mouse[0] > 100 and 535+50 > mouse[1] > 535:
         if click[0] == 1:
           scene = 1
@@ -107,6 +138,7 @@ while not done:
       pygame.draw.rect(screen, WHITE, (530,440,120,20) )
       
       screen.blit(pc_image, [0, 0])
+      
 
       # Logic
       if 20+170 > mouse[0] > 20 and 20+35 > mouse[1] > 20:
@@ -115,26 +147,32 @@ while not done:
       
       if 20+120 > mouse[0] > 20 and 235+20 > mouse[1] > 235:
         if click[0] == 1:
+          screen.blit(mobo_image, [0, 0])
           print("motherboard")
 
       if 12+120 > mouse[0] > 12 and 280+20 > mouse[1] > 280:
         if click[0] == 1:
+          screen.blit(gpu_image, [0, 0])
           print("GPU")
 
       if 40+120 > mouse[0] > 40 and 500+20 > mouse[1] > 500:
         if click[0] == 1:
+          screen.blit(psu_image, [0, 0])
           print("Power Supply")
 
       if 300+120 > mouse[0] > 300 and 135+20 > mouse[1] > 135:
         if click[0] == 1:
+          screen.blit(cpu_image, [0, 0])
           print("CPU")
         
       if 530+120 > mouse[0] > 530 and 250+20 > mouse[1] > 250:
         if click[0] == 1:
+          screen.blit(ram_image, [0, 0])
           print("RAM")
 
       if 530+440 > mouse[0] > 530 and 440+20 > mouse[1] > 440:
         if click[0] == 1:
+          screen.blit(storage_image, [0, 0])
           print("Storage")
         
     
@@ -143,17 +181,40 @@ while not done:
 
       # Drawing code
       pygame.draw.rect(screen, BLUE, (20,20,170,35) )
-      pygame.draw.rect(screen, WHITE, (295,427,155,30) )
-      pygame.draw.rect(screen, WHITE, (295,290,155,30) )
-      pygame.draw.rect(screen, WHITE, (295,570,155,30) )
+      #Operating System
       pygame.draw.rect(screen, WHITE, (295,155,155,30) )
+      #multimedia
+      pygame.draw.rect(screen, WHITE, (295,290,155,30) )
+      #web browser
+      pygame.draw.rect(screen, WHITE, (295,427,155,30) )
+      #productivity
+      pygame.draw.rect(screen, WHITE, (295,570,155,30) )
+      
       screen.blit(software_image, [0, 0])
 
-      
       # Logic
       if 20+170 > mouse[0] > 20 and 170+35 > mouse[1] > 35:
         if click[0] == 1:
           scene = 0
+
+      if 295+155 > mouse[0] > 295 and 155+30 > mouse[1] > 155:
+        if click[0] == 1:
+          print("OS")
+
+      if 295+155 > mouse[0] > 295 and 290+30 > mouse[1] > 290:
+        if click[0] == 1:
+          print("Multimedia")
+
+      if 295+155 > mouse[0] > 295 and 427+30 > mouse[1] > 427:
+        if click[0] == 1:
+          print("web browser")
+
+      if 295+155 > mouse[0] > 295 and 570+30 > mouse[1] > 570:
+        if click[0] == 1:
+          print("Productivity")
+
+      
+        
       
 
     # Logic and drawings for scene 3 
