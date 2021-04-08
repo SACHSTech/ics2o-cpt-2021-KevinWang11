@@ -1,7 +1,7 @@
 """
 -------------------------------------------------------------------------------
 Name:   main.py
-Purpose:  PyGame assignment based on an article that was found on Flipboard in order to raise awareness about computers and technology.
+Purpose:  A program that acts as a "computer kiosk" and allows the user to click on buttons to learn new things about computers. (CPT)
  
 Author: Wang.K
  
@@ -70,9 +70,17 @@ storage_image.set_colorkey(BLACK)
 psu_image = pygame.image.load("psu.png").convert()
 psu_image.set_colorkey(BLACK)
 
+os_image = pygame.image.load("os.png").convert()
+os_image.set_colorkey(BLACK)
 
+multimedia_image = pygame.image.load("multimedia.png").convert()
+multimedia_image.set_colorkey(BLACK)
 
+browser_image = pygame.image.load("browser.png").convert()
+browser_image.set_colorkey(BLACK)
 
+productivity_image = pygame.image.load("productivity.png").convert()
+productivity_image.set_colorkey(BLACK)
 
 scene = 0
 
@@ -88,12 +96,6 @@ while not done:
 
     # --- Game logic should go here
     
-    #Animates the moving image
-    
-
-    # First, clear the screen to white or whatever background colour. 
-    # Don't put other drawing commands above this, or they will be erased with this command.
-    
     #Displays the images onto the screen
     screen.blit(background_image, [0, 0])
     
@@ -108,10 +110,8 @@ while not done:
 
       pygame.draw.rect(screen, GREEN, (100,535,175,50) )
       pygame.draw.rect(screen, RED, (900,535,175,50) )
-      pygame.draw.rect(screen, BLUE, (500,535,175,50) )
-
+    
       screen.blit(home_image, [0, 0])
-  
   
       if 100+175 > mouse[0] > 100 and 535+50 > mouse[1] > 535:
         if click[0] == 1:
@@ -121,9 +121,7 @@ while not done:
         if click[0] == 1:
           scene = 2
 
-      elif 500+175 > mouse[0] > 500 and 535+50 > mouse[1] > 535:
-        if click[0] == 1:
-          scene = 3
+      
 
     # Logic and drawings for scene 1    
     if scene == 1:
@@ -148,33 +146,31 @@ while not done:
       if 20+120 > mouse[0] > 20 and 235+20 > mouse[1] > 235:
         if click[0] == 1:
           screen.blit(mobo_image, [0, 0])
-          print("motherboard")
+          
 
       if 12+120 > mouse[0] > 12 and 280+20 > mouse[1] > 280:
         if click[0] == 1:
           screen.blit(gpu_image, [0, 0])
-          print("GPU")
+          
 
       if 40+120 > mouse[0] > 40 and 500+20 > mouse[1] > 500:
         if click[0] == 1:
           screen.blit(psu_image, [0, 0])
-          print("Power Supply")
+          
 
       if 300+120 > mouse[0] > 300 and 135+20 > mouse[1] > 135:
         if click[0] == 1:
           screen.blit(cpu_image, [0, 0])
-          print("CPU")
+          
         
       if 530+120 > mouse[0] > 530 and 250+20 > mouse[1] > 250:
         if click[0] == 1:
           screen.blit(ram_image, [0, 0])
-          print("RAM")
+          
 
       if 530+440 > mouse[0] > 530 and 440+20 > mouse[1] > 440:
         if click[0] == 1:
-          screen.blit(storage_image, [0, 0])
-          print("Storage")
-        
+          screen.blit(storage_image, [0, 0])       
     
     # Logic and drawings for scene 2 
     if scene == 2:
@@ -199,40 +195,24 @@ while not done:
 
       if 295+155 > mouse[0] > 295 and 155+30 > mouse[1] > 155:
         if click[0] == 1:
-          print("OS")
+          screen.blit(os_image, [0, 0])
+          
 
       if 295+155 > mouse[0] > 295 and 290+30 > mouse[1] > 290:
         if click[0] == 1:
-          print("Multimedia")
+          screen.blit(multimedia_image, [0, 0])
+          
 
       if 295+155 > mouse[0] > 295 and 427+30 > mouse[1] > 427:
         if click[0] == 1:
-          print("web browser")
+          screen.blit(browser_image, [0, 0])
+          
 
       if 295+155 > mouse[0] > 295 and 570+30 > mouse[1] > 570:
         if click[0] == 1:
-          print("Productivity")
-
-      
-        
-      
-
-    # Logic and drawings for scene 3 
-    if scene == 3:
-
-      # Drawing code
-      pygame.draw.rect(screen, BLUE, (20,20,170,35) )
-      
-      # Logic
-      if 20+170 > mouse[0] > 20 and 170+35 > mouse[1] > 35:
-        if click[0] == 1:
-          scene = 0
-
-      
-      
+          screen.blit(productivity_image, [0, 0])
       
     # --- Go ahead and update the screen with what we've drawn.
-    
  
     # --- Limit to 60 frames per second
     clock.tick(60)
