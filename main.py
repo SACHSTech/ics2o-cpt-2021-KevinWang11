@@ -11,7 +11,7 @@ Created: 03/03/2021
  
 import pygame
  
-# Define some colors
+# Defines some colors
 BLACK    = (   0,   0,   0)
 WHITE    = ( 255, 255, 255)
 GREEN    = (   0, 255,   0)
@@ -33,7 +33,6 @@ screen = pygame.display.set_mode(size)
 #Names the window at the top 
 pygame.display.set_caption("Kevin's Computer Kiosk")
 
- 
 #Loop until the user clicks the close button.
 done = False
 
@@ -82,9 +81,8 @@ browser_image.set_colorkey(BLACK)
 productivity_image = pygame.image.load("productivity.png").convert()
 productivity_image.set_colorkey(BLACK)
 
+#Sets scene variable in order to switch pages
 scene = 0
-
-#Sets the posltiion and the velocity for the animated lock
 
 # -------- Main Program Loop -----------
 while not done:
@@ -92,20 +90,17 @@ while not done:
     for event in pygame.event.get(): # User did something
         if event.type == pygame.QUIT: # If user clicked close
             done = True # Flag that we are done so we exit this loop
-  
 
     # --- Game logic should go here
     
-    #Displays the images onto the screen
+    #Displays background image onto the screen
     screen.blit(background_image, [0, 0])
-    
   
-    
     #Defines the mouse position and clicks
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
   
-    # --- Drawing button code should go here 
+    # Home screen 
     if scene == 0:  
 
       pygame.draw.rect(screen, GREEN, (100,535,175,50) )
@@ -121,9 +116,7 @@ while not done:
         if click[0] == 1:
           scene = 2
 
-      
-
-    # Logic and drawings for scene 1    
+    # Logic and drawings for hardware page    
     if scene == 1:
 
       # Drawing code
@@ -136,9 +129,8 @@ while not done:
       pygame.draw.rect(screen, WHITE, (530,440,120,20) )
       
       screen.blit(pc_image, [0, 0])
-      
-
-      # Logic
+    
+      # Button Logic
       if 20+170 > mouse[0] > 20 and 20+35 > mouse[1] > 20:
         if click[0] == 1:
           scene = 0
@@ -172,7 +164,7 @@ while not done:
         if click[0] == 1:
           screen.blit(storage_image, [0, 0])       
     
-    # Logic and drawings for scene 2 
+    # Logic and drawings for scene 2 (software page) 
     if scene == 2:
 
       # Drawing code
@@ -188,7 +180,7 @@ while not done:
       
       screen.blit(software_image, [0, 0])
 
-      # Logic
+      # Button Logic
       if 20+170 > mouse[0] > 20 and 170+35 > mouse[1] > 35:
         if click[0] == 1:
           scene = 0
