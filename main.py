@@ -5,7 +5,7 @@ Purpose:  A program that acts as a "computer kiosk" and allows the user to click
  
 Author: Wang.K
  
-Created: 03/03/2021
+Created: 03/22/2021
 ------------------------------------------------------------------------------
 """
  
